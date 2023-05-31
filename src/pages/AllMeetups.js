@@ -1,7 +1,7 @@
 import MeetupList from "../components/meetups/MeetupList";
 import { useState, useEffect} from "react";
 
-const DUMMY_DATA = [
+/* const DUMMY_DATA = [
     {
       id: 'm1',
       title: 'This is a first meetup',
@@ -20,12 +20,13 @@ const DUMMY_DATA = [
       description:
         'This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!',
     },
-  ];
+  ]; */
 
 function AllMeetupsPage() {
   //1st element is the current state snapshot
   //2nd element is the function for updating state
   const [isLoading, setIsLoading] = useState(true);
+
   const [loadedMeetups, setLoadedMeetups] = useState([]);
 
   //1st argument is function to execute
@@ -37,8 +38,7 @@ function AllMeetupsPage() {
     fetch(
       'https://react-getting-started-63985-default-rtdb.asia-southeast1.firebasedatabase.app/meetups.json'
     ).then(response => {
-        //fetch() returns a promise which resolves as soon as it is done
-        //when promise completes, we want to process the response body
+        //fetch() returns a promise. when promise completes, we want to process the response body
         return response.json();
     }).then (data=> {
       //response.json() returns a promise also, so we need another attach then
@@ -95,7 +95,7 @@ function AllMeetupsPage() {
 
   return (
   <section>
-      <div>All Meetups</div>
+      <h1>All Meetups</h1>
       <MeetupList meetups={loadedMeetups} />
   </section>
   );

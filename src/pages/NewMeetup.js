@@ -16,7 +16,8 @@ function NewMeetupPage() {
                 }
             }
         ).then(() => {
-            //when finish, navigate to starting page
+            //fetch() returns a promise which resolves as soon as it is done
+            //when promise completes, navigate to starting page
             history.replace('/');
         });
     }
